@@ -1,7 +1,7 @@
 {
-  "name": "external-content-extension",
-  "version": "1.0.0",
-  "description": "External Content Extension",
+  "name": "imagino-external-content-extension",
+  "version": "1.0.1",
+  "description": "Imagino External Content Extension",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.js",

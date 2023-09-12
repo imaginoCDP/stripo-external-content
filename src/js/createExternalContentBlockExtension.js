@@ -23,7 +23,7 @@ export function createExternalContentBlockExtension(stripoConfig, stripoApi) {
     name: "ExternalContentBlock",
     iconClass: "es-icon-image",
     uniqueClassName: BLOCK_UNIQUE_CLASS_NAME,
-    canBeSavedToLibrary: true,
+    canBeSavedToLibrary: false,
     i18n: translations,
     blockName: "block.name",
     blockType: "block",
