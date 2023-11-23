@@ -1,5 +1,5 @@
-import { createExternalContentBlockExtension } from "./createExternalContentBlockExtension";
-import { GLOBAL_EXTENSION_NAME } from "./constants";
+import { createExternalContentBlockExtension } from './createExternalContentBlockExtension'
+import { GLOBAL_EXTENSION_NAME } from './constants'
 
 const extension = {
   create(stripoConfig, stripoApi, extensionBasePath) {
@@ -8,9 +8,9 @@ const extension = {
       stripoApi,
       extensionBasePath,
       onBlockCopy() {},
-      ...createExternalContentBlockExtension(stripoConfig, stripoApi),
-    });
-  },
-};
+      ...createExternalContentBlockExtension(stripoConfig, stripoApi)
+    })
+  }
+}
 
-self[GLOBAL_EXTENSION_NAME] = extension;
+self[GLOBAL_EXTENSION_NAME] = extension
