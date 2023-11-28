@@ -14,27 +14,20 @@ export function createExternalContentBlockExtension(stripoConfig, stripoApi) {
   }
 
   function onSelectBlock(block, context) {
-    // debugger
     if (!context.showCustomBlockSettings) {
-      // debugger
       onBlockOpen(block)
     }
   }
 
-  // function blockDropped(block, context) {
-  //   debugger
-  //   onBlockOpen(block)
-  //   debugger
-  // }
-
   return {
     name: 'ExternalContentBlock',
-    iconClass: 'es-icon-image',
+    iconClass: 'es-icon-download',
     uniqueClassName: BLOCK_UNIQUE_CLASS_NAME,
     canBeSavedToLibrary: false,
     i18n: translations,
+    emptyContainerIcon: true,
     blockName: 'block.name',
-    blockType: 'block',
+    blockType: 'structure', // structure should restrain the place where the block can be put
     disableSettingsPanel: true,
     isEnabled: () => true,
     getBlockLayoutToDrop,
