@@ -1,7 +1,11 @@
 const paths = require('./paths')
-const webpack = require('webpack')
-const merge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const common = require('./webpack.common.js')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+console.log(
+  `⚠️ ⚠️  URL to add this extension in Stripo in **DEV**: http://local.host:3005/main.extension.js`
+)
 
 module.exports = merge(common, {
   /**
@@ -25,26 +29,13 @@ module.exports = merge(common, {
    */
   devServer: {
     historyApiFallback: true,
-    contentBase: paths.build,
-    open: true,
+    allowedHosts: 'all',
+    static: paths.build,
+    client: { overlay: false },
     compress: true,
     hot: true,
-    port: 3005,
-    disableHostCheck: true,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers": "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range",
-      "Access-Control-Expose-Headers": "Content-Length,Content-Range"
-    }
+    port: 3005
   },
 
-  plugins: [
-    /**
-     * HotModuleReplacementPlugin
-     *
-     * Only update what has changed.
-     */
-    new webpack.HotModuleReplacementPlugin(),
-  ],
+  plugins: [new HtmlWebpackPlugin({ title: 'Test' })]
 })

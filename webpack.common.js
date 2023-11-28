@@ -1,6 +1,7 @@
 const paths = require('./paths')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = {
   /**
@@ -18,7 +19,7 @@ module.exports = {
   output: {
     path: paths.build,
     filename: '[name].extension.js',
-    publicPath: '/',
+    publicPath: '/'
   },
 
   /**
@@ -34,18 +35,25 @@ module.exports = {
      */
     new CleanWebpackPlugin(),
 
+    new ESLintPlugin({
+      extensions: [`js`, `jsx`],
+      exclude: [`/node_modules/`]
+    }),
+
     /**
      * CopyWebpackPlugin
      *
      * Copies files from target to destination folder.
      */
-    new CopyWebpackPlugin([
-      {
-        from: paths.static,
-        to: 'assets',
-        ignore: ['*.DS_Store'],
-      },
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: paths.static,
+          to: 'assets',
+          noErrorOnMissing: true
+        }
+      ]
+    })
   ],
 
   /**
@@ -63,13 +71,13 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['babel-loader', 'eslint-loader'],
+        loader: 'babel-loader'
       },
       {
         test: /\.html$/,
         exclude: /node_modules/,
         use: 'raw-loader'
       }
-    ],
-  },
+    ]
+  }
 }
