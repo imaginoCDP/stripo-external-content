@@ -18,9 +18,9 @@ module.exports = merge(common, {
   /**
    * Optimization
    *
-   * Production minimizing of JavaSvript and CSS assets.
+   * Production minimizing of JavaScript and CSS assets.
    */
   optimization: {
-    minimizer: [new TerserJSPlugin({})]
+    minimizer: [new TerserJSPlugin({})],
   }
 })

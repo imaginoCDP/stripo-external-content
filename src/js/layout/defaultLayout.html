@@ -1,7 +1,23 @@
 <td style="cursor: pointer">
   <div class="externalContentDefault">
-    <p style="font-size: 18px; text-align: center; padding-bottom: 10px">
-      Click here to add a new External Content
+    <style>
+      tr>td.external-content-block .externalContentDefault {
+          margin: 20px;
+          background-color: #ebfaff;
+          border: 1px dashed hsl(194, 96%, 70%);
+          transition: background-color 200ms ease;
+          border-radius: 3px;
+      }
+      tr>td.external-content-block .externalContentDefault p {
+          color: hsl(214, 93%, 22%);
+      }
+
+      tr>td.external-content-block .externalContentDefault:hover {
+          background-color: #bfdee9;
+      }
+    </style>
+    <p style="font-size: 18px; text-align: center; padding-top: 10px; padding-bottom: 10px">
+      Click to add a Content Fragment
     </p>
   </div>
   <div class="externalContentContainer" style="display: none">
